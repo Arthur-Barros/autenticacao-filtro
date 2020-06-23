@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'padrao';
+    src: url(../fonts/NunitoSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'negrito';
+    src: url(../fonts/NunitoSans-Black.ttf);
+}
+
+$fonte-padrao: 'padrao';
+$fonte-negrito: 'negrito';

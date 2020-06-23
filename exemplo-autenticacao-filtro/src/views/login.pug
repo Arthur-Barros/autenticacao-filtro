@@ -1,0 +1,12 @@
+extends layout
+
+block conteudo
+
+    #areaLogin
+        form(action="/", method="post")
+            input(type="text", name="email", placeholder="E-mail", required)
+            input(type="password", name="senha", placeholder="senha", required)
+            input(type="submit", value="Login")
+        
+        if mensagem
+            span= mensagem

@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'padrao';
+  src: url(../fonts/NunitoSans-Regular.ttf); }
+
+@font-face {
+  font-family: 'negrito';
+  src: url(../fonts/NunitoSans-Black.ttf); }
+
+body {
+  margin: 0;
+  font-family: "padrao"; }
+
+#banner {
+  background-color: #5c5551;
+  color: white;
+  padding: 5px 10px;
+  position: relative; }
+  #banner * {
+    display: inline;
+    vertical-align: middle; }
+  #banner img {
+    width: 40px;
+    background-color: #eb974e;
+    padding: 10px;
+    border-radius: 50%;
+    margin-right: 10px; }
+  #banner h1 {
+    font-family: "negrito"; }
+  #banner a {
+    text-decoration: none; }
+  #banner a.cadastro-user {
+    margin-left: 60px;
+    color: white; }
+  #banner a.logout {
+    color: white;
+    position: absolute;
+    right: 20px;
+    top: 25px; }
+
+#conteudo {
+  padding: 10px; }
+
+#cadastroUsuario {
+  margin: 50px auto;
+  width: 500px;
+  padding: 20px;
+  border: 1px solid #dddddd; }
+  #cadastroUsuario input {
+    display: block;
+    margin: 0px auto 10px auto;
+    font-family: "padrao"; }
+    #cadastroUsuario input[type=text], #cadastroUsuario input[type=password] {
+      height: 35px;
+      width: 350px;
+      border: 1px solid #cccccc;
+      font-size: 110%;
+      padding: 5px;
+      text-align: center;
+      color: #777777; }
+    #cadastroUsuario input[type=submit] {
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: #e67e22;
+      padding: 5px 10px;
+      font-size: 130%;
+      cursor: pointer; }
+
+#areaLogin {
+  margin: 50px auto;
+  width: 500px;
+  padding: 20px;
+  border: 1px solid #dddddd; }
+  #areaLogin input {
+    display: block;
+    margin: 0px auto 10px auto;
+    font-family: "padrao"; }
+    #areaLogin input[type=text], #areaLogin input[type=password] {
+      height: 35px;
+      width: 350px;
+      border: 1px solid #cccccc;
+      font-size: 110%;
+      padding: 5px;
+      text-align: center;
+      color: #777777; }
+    #areaLogin input[type=submit] {
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: #e67e22;
+      padding: 5px 10px;
+      font-size: 130%;
+      cursor: pointer; }
+
+#home {
+  text-align: center; }
