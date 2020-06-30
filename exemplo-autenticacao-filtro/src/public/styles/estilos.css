@@ -34,8 +34,11 @@ body {
   #banner a.logout {
     color: white;
     position: absolute;
-    right: 20px;
-    top: 25px; }
+    right: 10px;
+    top: 10px; }
+  #banner img.logout {
+    height: 25px;
+    background-color: white; }
 
 #conteudo {
   padding: 10px; }

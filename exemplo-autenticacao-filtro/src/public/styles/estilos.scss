@@ -41,8 +41,13 @@ body {
     a.logout{
         color: white;
         position: absolute;
-        right: 20px;
-        top: 25px;
+        right: 10px;
+        top: 10px;
+    }
+ 
+    img.logout{
+        height: 25px;
+        background-color: white; 
     }
 
 }

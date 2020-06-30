@@ -87,15 +87,28 @@ export default class LoginController {
         return this.usuarios.find(usuario => usuario.login === login);
     }
 
+    
+
+    verificarUsuario(req, res, next){
+        const usuario = req.session.usuario;
+    
+        if(usuario){
+            next();
+        }else{
+            res.redirect('/');
+        }
+    }
+
+
     /**
      * Verifica se o token JWT ainda é valido (não expirou)
      * @param {*} req Requisição HTTP
      * @param {*} res Resposta HTTP
      * @param {*} next Função que invoca o próximo passo caso o token seja válido
      */
+     
     verificarToken(req, res, next) {
         const token = req.session.token;
-        console.log(token);
 
         /**
          * Se o token já expirou, não permite o acesso à página

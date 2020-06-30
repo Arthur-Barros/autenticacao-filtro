@@ -6,23 +6,21 @@ import LoginController from '../controller/LoginController';
 
 const router = Router();
 const loginCtrl = new LoginController();
-
 /**
  * Rota da página de login
  */
-router.get('/', (req, res) => res.render('login'));
+router.get('/', (req, res) =>{
 
-// router.get('/cadastro', (req, res) => res.render('cadastro'));
-router.get('/cadastro', loginCtrl.verificarToken, (req, res) => res.render('cadastro', { usuario: req.session.usuario }));
+    let userLoged;
+    if(!req.session.usuario){
+        userLoged = false;
+    }else{
+        userLoged = true;
+    }
 
-router.post('/cadastro', (req,res) => {
+    return res.render('login', { userLoged });
+}); 
 
-    const { email, nome, senha } = req.body;
-    const resposta2 = loginCtrl.registrarUsuario(email, nome, senha);
-    
-   
-    res.render('cadastro', { mensagem: resposta2.mensagem });
-});
 
 /**
  * Rota para a verificação do login do usuário
@@ -34,6 +32,8 @@ router.post('/', (req, res) => {
      */
     const { email, senha } = req.body;
     const resposta = loginCtrl.realizarLogin(email, senha);
+    
+
     /**
      * Se o usuário foi autenticado, adiciona o
      * token JWT na sessão para que ele possa ser
@@ -50,6 +50,29 @@ router.post('/', (req, res) => {
     }
 });
 
+
+//Rota do cadastro 
+router.get('/cadastro', loginCtrl.verificarUsuario, (req, res) => res.render('cadastro'));
+
+// Rota para criar um novo usuário
+router.post('/cadastro', (req,res) => {
+
+    const { email, nome, senha } = req.body;
+    const resposta2 = loginCtrl.registrarUsuario(email, nome, senha);
+  
+    res.render('cadastro', { mensagem: resposta2.mensagem });
+    
+   
+});
+
+// rota da logout
+router.get('/logout', (req,res) => {
+    console.log("entrei aqui");
+    req.session = null;
+    console.log(req.session);
+    res.redirect('/');
+    
+});
 
 
 /**
