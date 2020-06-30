@@ -39,17 +39,28 @@ router.post('/', (req, res) => {
 
 
 //Rota do cadastro 
-router.get('/cadastro', loginCtrl.protegerRota, (req, res) => res.render('cadastro', { usuario: req.session.usuario }));
+router.get('/cadastro', loginCtrl.protegerRota, (req, res) => {
+    
+    let userIsLoged = loginCtrl.UsuarioLogado(req);
 
+    let userIsAdmin = loginCtrl.UsuarioEhAdmin(req); 
+
+    return res.render('cadastro', { userIsLoged, userIsAdmin });
+});
 // Rota para criar um novo usuário
 router.post('/cadastro', (req,res) => {
 
     const { email, nome, senha } = req.body;
     const resposta2 = loginCtrl.registrarUsuario(email, nome, senha);
-  
-    res.render('cadastro', {
+
+    let userIsLoged = loginCtrl.UsuarioLogado(req);
+
+    let userIsAdmin = loginCtrl.UsuarioEhAdmin(req); 
+
+    return res.render('cadastro', {
         mensagem: resposta2.mensagem,
-        usuario: req.session.usuario 
+        userIsLoged,
+        userIsAdmin
     });
     
    
@@ -71,7 +82,13 @@ router.get('/logout', (req,res) => {
  * token do usuário não expirou, ou seja, se ainda não se passou 1 hora
  * desde que ele realizou o seu login.
  */
-router.get('/home', loginCtrl.verificarToken, (req, res) => res.render('home', { usuario: req.session.usuario }));
+router.get('/home', loginCtrl.verificarToken, (req, res) => {
+    
+    let userIsLoged = loginCtrl.UsuarioLogado(req);
 
+    let userIsAdmin = loginCtrl.UsuarioEhAdmin(req); 
+
+    return res.render('home', { usuario: req.session.usuario , userIsLoged, userIsAdmin});
+});
 
 export default router;

@@ -7,7 +7,7 @@ body {
 }
 
 #banner {
-    background-color: #5c5551;
+    background-color: #0071f3;
     color: white; 
     padding: 5px 10px; 
     position: relative;   
@@ -36,21 +36,28 @@ body {
     a.cadastro-user{
         margin-left: 60px;
         color: white;
-    }
 
+        &:hover{
+            color:  #eb974e;
+            font-weight: bold;
+        } 
+       
+    } 
+    
     a.logout{
         color: white;
         position: absolute;
         right: 10px;
-        top: 10px;
+        top: 20px;
+        
+        &:hover{
+            color:  #eb974e;
+            font-weight: bold;
+        } 
+   
     }
- 
-    img.logout{
-        height: 25px;
-        background-color: white; 
-    }
-
-}
+  
+} 
 
 #conteudo {
     padding: 10px;

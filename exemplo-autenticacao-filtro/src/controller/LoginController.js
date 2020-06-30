@@ -2,7 +2,7 @@ import seguranca from '../utils/seguranca';
 
 /**
  * Controlador de login (autenticação)
- * @author Sidney Sousa
+ * @author Arthur Barros e Lucas Paniago
  */
 export default class LoginController {
 
@@ -87,20 +87,29 @@ export default class LoginController {
         return this.usuarios.find(usuario => usuario.login === login);
     }
 
-    
-    VerficarseUsuarioExiste(req,res){
-        let userLoged;
-        if(!req.session.usuario){
-            userLoged = false;
+
+    UsuarioLogado(req){
+        let usuario = req.session.usuario;
+
+        if(usuario){
+            return true;
         }else{
-            userLoged = true;
+            return false;
+        }
+    }
+
+    UsuarioEhAdmin(req){
+        let login = req.session.usuario.login;
+        if(login == "admin@email.com"){
+            return true;
+        }else{
+            return false;
         }
     }
 
 
     protegerRota(req, res, next){
         const usuario = req.session.usuario;
-        console.log(usuario)
         if(usuario && usuario.login == "admin@email.com"){
             next();
         }else{

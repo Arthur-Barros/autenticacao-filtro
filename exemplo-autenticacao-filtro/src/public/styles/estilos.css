@@ -11,7 +11,7 @@ body {
   font-family: "padrao"; }
 
 #banner {
-  background-color: #5c5551;
+  background-color: #0071f3;
   color: white;
   padding: 5px 10px;
   position: relative; }
@@ -31,14 +31,17 @@ body {
   #banner a.cadastro-user {
     margin-left: 60px;
     color: white; }
+    #banner a.cadastro-user:hover {
+      color: #eb974e;
+      font-weight: bold; }
   #banner a.logout {
     color: white;
     position: absolute;
     right: 10px;
-    top: 10px; }
-  #banner img.logout {
-    height: 25px;
-    background-color: white; }
+    top: 20px; }
+    #banner a.logout:hover {
+      color: #eb974e;
+      font-weight: bold; }
 
 #conteudo {
   padding: 10px; }

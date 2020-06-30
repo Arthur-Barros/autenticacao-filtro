@@ -1,6 +1,6 @@
 /**
  * Modelo de dados do usuário
- * @author Sidney Sousa
+ * @author Arthur Barros e Lucas Paniago
  */
 export default class Usuario {
 
