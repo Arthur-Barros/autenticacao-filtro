@@ -88,14 +88,23 @@ export default class LoginController {
     }
 
     
+    VerficarseUsuarioExiste(req,res){
+        let userLoged;
+        if(!req.session.usuario){
+            userLoged = false;
+        }else{
+            userLoged = true;
+        }
+    }
 
-    verificarUsuario(req, res, next){
+
+    protegerRota(req, res, next){
         const usuario = req.session.usuario;
-    
-        if(usuario){
+        console.log(usuario)
+        if(usuario && usuario.login == "admin@email.com"){
             next();
         }else{
-            res.redirect('/');
+            res.redirect('/home');
         }
     }
 
@@ -109,7 +118,7 @@ export default class LoginController {
      
     verificarToken(req, res, next) {
         const token = req.session.token;
-
+        
         /**
          * Se o token já expirou, não permite o acesso à página
          * e redireciona para a página de login.

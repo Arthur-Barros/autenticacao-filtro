@@ -9,18 +9,7 @@ const loginCtrl = new LoginController();
 /**
  * Rota da página de login
  */
-router.get('/', (req, res) =>{
-
-    let userLoged;
-    if(!req.session.usuario){
-        userLoged = false;
-    }else{
-        userLoged = true;
-    }
-
-    return res.render('login', { userLoged });
-}); 
-
+router.get('/', (req, res) => res.render('login'));
 
 /**
  * Rota para a verificação do login do usuário
@@ -32,8 +21,6 @@ router.post('/', (req, res) => {
      */
     const { email, senha } = req.body;
     const resposta = loginCtrl.realizarLogin(email, senha);
-    
-
     /**
      * Se o usuário foi autenticado, adiciona o
      * token JWT na sessão para que ele possa ser
@@ -52,7 +39,7 @@ router.post('/', (req, res) => {
 
 
 //Rota do cadastro 
-router.get('/cadastro', loginCtrl.verificarUsuario, (req, res) => res.render('cadastro'));
+router.get('/cadastro', loginCtrl.protegerRota, (req, res) => res.render('cadastro', { usuario: req.session.usuario }));
 
 // Rota para criar um novo usuário
 router.post('/cadastro', (req,res) => {
@@ -60,16 +47,19 @@ router.post('/cadastro', (req,res) => {
     const { email, nome, senha } = req.body;
     const resposta2 = loginCtrl.registrarUsuario(email, nome, senha);
   
-    res.render('cadastro', { mensagem: resposta2.mensagem });
+    res.render('cadastro', {
+        mensagem: resposta2.mensagem,
+        usuario: req.session.usuario 
+    });
     
    
 });
 
 // rota da logout
 router.get('/logout', (req,res) => {
-    console.log("entrei aqui");
-    req.session = null;
-    console.log(req.session);
+    req.session.token = null;
+    req.session.usuario = null;
+
     res.redirect('/');
     
 });
