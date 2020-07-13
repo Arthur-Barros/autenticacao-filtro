@@ -1,4 +1,6 @@
-# Autenticacao-filtro
+# Autenticação-filtro
+
+### Visualização
 <h1>
   <img src="https://ik.imagekit.io/xlj9cejf8v/autenticao_bLzpQpbmc.gif" alt="gif referente a página de autenticação">
 </h1>
@@ -6,9 +8,9 @@
 ---
 
 # Indice
-- [Sobre](#-sobre)
-- [Tecnologias utilizadas](#-tecnologias-utilizadas)
-- [Como baixar o projeto](#-como-baixar-o-projeto)
+- [Sobre](#sobre) | [Tecnologias utilizadas](#tecnologias-utilizadas) | [Como utilizar](#como-utilizar) | [Como rodar o projeto](#como-rodar-o-projeto)
+
+----
 
 ## Sobre
 Trabalho desenvolvido para a disciplina de construção de páginas web 3, **Autenticação**,
@@ -35,7 +37,14 @@ o projeto foi desenvolvido usando as seguintes tecnologias
 
 ---
 
-## Como baixar o projeto
+## Como utilizar
+Para executar essa aplicação você vai precisar dos seguintes softwares instalados em seu computador:
+- [NodeJs](https://nodejs.org/en/)
+- [Git](https://git-scm.com/)
+
+---
+
+## Como rodar o projeto
 
 ```bash
 # Clonar repositório
@@ -55,4 +64,5 @@ $ npm run sass
 
 ```
 ---
-Desenvolvido por Arthur Barros
+
+Desenvolvido por **Arthur Barros** [Entre em contato](https://www.linkedin.com/in/arthur-barros-/)
