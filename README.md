@@ -11,7 +11,7 @@
 - [Como baixar o projeto](#-como-baixar-o-projeto)
 
 ## Sobre
-    Trabalho desenvolvido para a disciplina de construção de páginas web 3, **Autenticação**, com o objetivo de práticar todo conteúdo estudado dentro das aulas, e pesquisar as novas tecnologias utilizadas para a criptografia da senha.
+   Trabalho desenvolvido para a disciplina de construção de páginas web 3, **Autenticação**, com o objetivo de práticar todo conteúdo estudado dentro das aulas, e pesquisar as novas tecnologias utilizadas para a criptografia da senha.
 ---
 
 ## Tecnologias utilizadas
